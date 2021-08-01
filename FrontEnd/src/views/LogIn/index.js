@@ -18,13 +18,7 @@ export default function LogIn() {
     })
     let history = useHistory();
 
-    // const reDirectToHome = () =>{
-    //     console.log("inside");
-    //     return <Redirect to = {{
-    //         pathname : '/home',
-    //         state : {authorisedUserDetails : authorisedUserDetails}
-    //     }}/>
-    // }
+    //////////////////////////////////////////// controller portion
 
     const onChangeTempUserHandleNameHandler = (e) =>{
         setTempUserDetails({
@@ -46,7 +40,6 @@ export default function LogIn() {
         })
     }
 
-    /// controller portion
     const loginSubmitHandler = (e) =>{
         e.preventDefault();
         axios.post(`http://localhost:${PORT}/login`,{tempUserDetails})
@@ -65,7 +58,7 @@ export default function LogIn() {
     }
 
 
-    /// View portion
+    //////////////////////////////////////////     View portion
     return <LogInForm
                 tempUserDetails = {tempUserDetails}
                 onChangeTempUserHandleNameHandler = {onChangeTempUserHandleNameHandler}
