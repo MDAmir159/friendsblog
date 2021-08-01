@@ -3,7 +3,7 @@ import SignInForm from './SignInForm'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 import {PORT} from '../../backEndPort'
-import  {myFormattedTime} from '../../functions/utilities'
+import  {myFormattedTime} from '../../functions/constFunctions/index'
 
 export default function SignUp() {
     ///////////////////////////////////////////////////////////// model portion   /////////////////////////////////////////////////////////////////
