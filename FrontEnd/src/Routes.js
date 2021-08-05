@@ -6,6 +6,7 @@ import Settings from './views/Settings'
 import SignUp from './views/SignUp'
 import NewPage from './NewPage'
 import Profile from './views/Home/components/HomeHeader/Profile'
+import FullPost from './views/FullPost'
 
 export default function Routes() {
     return (
@@ -15,6 +16,7 @@ export default function Routes() {
            <Route path = '/home' component = {Home} />
            <Route path = '/profile' component = {Profile} />
            <Route path = '/settings' component = {Settings} />
+           <Route path = '/fullPost' component = {FullPost} />
        </Switch>
     )
 }

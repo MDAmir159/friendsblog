@@ -1,5 +1,5 @@
 import React from 'react'
-import Post from './Post'
+import Post from './Post/index'
 
 export default function PostListitems(props) {
     const {postItemsIntel} = props;    
@@ -7,7 +7,6 @@ export default function PostListitems(props) {
         <div>
             <ul type = "none">
                 {
-                    // <Post />
                     postItemsIntel.map((item , index) => <Post key = {index} index = {index} value = {item} />)
                 }
             </ul>

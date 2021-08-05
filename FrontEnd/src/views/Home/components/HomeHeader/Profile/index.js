@@ -6,7 +6,7 @@ export default function () {
 
     let location = useLocation();
 
-    console.log(location.data);
+    // console.log(location.state.data);
 
     return <ProfileView />
 }
