@@ -10,7 +10,14 @@ import { MdSend } from 'react-icons/md';
 import { BsThreeDotsVertical} from 'react-icons/bs';
 
 
-export default function FullPostView() {
+export default function FullPostView(props) {
+
+    const {
+        postDetails,
+        onChangeCommentHandler,
+        onSubmitCommentHandler
+    } = props;
+
     const useStyles = makeStyles(theme => ({
         mainPage:{
             height : '100vh',
@@ -115,13 +122,13 @@ export default function FullPostView() {
                             {/* name of user */}
                             <div className = {styles.postHeaderPostProviderName}>
                                 <text className = {styles.postHeaderPostProviderNameStyle}>
-                                    <b>MD Amirul Islam</b>
+                                    <b>{postDetails.postUserName}</b>
                                 </text>
                             </div>
                             {/* post time */}
                             <div className = {styles.postHeaderPostProvidingTime}>
                                 <text className = {styles.postHeaderPostProvidingTimeStyle}>
-                                    11:17 PM
+                                    {postDetails.postInsertedTime}
                                 </text>
                             </div>
                             
@@ -136,12 +143,7 @@ export default function FullPostView() {
                     <div className = {styles.postBody}>
                         <div className = {styles.postBodyContainer}>
                             <text className = {styles.postTextStyle}>
-                                    Dear Students,
-                                        I have rechecked again the roll numbers that's are mentioned in the earlier post. However, only 3 persons are out of danger and their roll number is 170343, 1703088, 1703089.
-                                        Roll Number 170343, 1703088, 1703089 are released from the plagiarism issue and sorry for only these 3 persons for being claimed as a plagiarized person.
-                                        Thanks.
-                                    BR,
-                                    ZAHIR
+                                {postDetails.postDescription}
                             </text>
                         </div>
                     </div>
@@ -164,13 +166,17 @@ export default function FullPostView() {
                                 // style={{ margin: 8 }}
                                 placeholder="Add a commnet..."
                                 className = {styles.addCommentStyle}
+                                onChange = {onChangeCommentHandler}
                                 // InputLabelProps={{
                                 //     shrink: true,
                                 // }}
                             />
                         </div>
                         <div className = {styles.addCommentButton}>
-                            <IconButton className={styles.addCommentButtonStyle}>
+                            <IconButton
+                                className={styles.addCommentButtonStyle}
+                                onClick = {onSubmitCommentHandler}
+                            >
                                 <MdSend />
                             </IconButton>
                         </div>

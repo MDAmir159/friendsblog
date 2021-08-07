@@ -14,10 +14,8 @@ export default function HomeHeader(props) {
         })
     }
 
-
     return <HomeHeaderElements 
                 authorisedUserDetails = {authorisedUserDetails}
-
                 onClickProfileIconHandler = {onClickProfileIconHandler}
             />
 }

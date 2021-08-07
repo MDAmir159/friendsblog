@@ -4,6 +4,7 @@ import { useHistory } from 'react-router';
 
 export default function Post(props) {
 
+    // console.log(props);
     /// init post item
     const [item, setItem] = useState(props.value)
     /// init menu
@@ -35,6 +36,9 @@ export default function Post(props) {
 
     //// handling action for like button
     const onClickLikeButtonHandler = (e) =>{
+
+        console.log(item);
+
         if(isLiked === true){
             setNoOfLikes(noOfLikes - 1)
             setIsLiked(false)
@@ -47,7 +51,10 @@ export default function Post(props) {
 
     /// handling action for comment button
     const onClickCommentButtonHandler = (e) =>{
-        
+        history.push({
+            pathname : `/fullpost/${item.postId}`,
+            state : {data : item}
+        })
         console.log("comment button prossed");
         
     }
@@ -67,6 +74,7 @@ export default function Post(props) {
                 anchorEl = {anchorEl}
                 noOfLikes = {noOfLikes}
                 isLiked = {isLiked}
+                authorisedUserDetails = {props.authorisedUserDetails}
 
                 onClickLikeButtonHandler = {onClickLikeButtonHandler}
                 onClickCommentButtonHandler = {onClickCommentButtonHandler}

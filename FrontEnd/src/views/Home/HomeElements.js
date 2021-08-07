@@ -22,7 +22,8 @@ export default function HomeElements(props) {
                 authorisedUserDetails = {authorisedUserDetails}
                 setNewPost = {setNewPost}
             />
-            <PostLists 
+            <PostLists
+                authorisedUserDetails = {authorisedUserDetails}
                 postItemsIntel = {postItemsIntel}
             />
         </div>

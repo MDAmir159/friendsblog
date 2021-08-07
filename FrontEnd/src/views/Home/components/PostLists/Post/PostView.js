@@ -17,6 +17,7 @@ export default function PostView(props) {
         anchorEl,
         noOfLikes,
         isLiked,
+        authorisedUserDetails,
         onClickLikeButtonHandler,
         onClickCommentButtonHandler,
         onClickShareButtonHandler,
@@ -168,8 +169,8 @@ export default function PostView(props) {
     const comments = 19;
     const ITEM_HEIGHT = 40;
     const options = [
-        // 'Hide Post',
-        'Share Link'
+        'Edit',
+        'Delete'
     ];
 
     return (
@@ -188,36 +189,43 @@ export default function PostView(props) {
                             <p className = {styles.post_time}>{item.postInsertedTime}</p>
                         </div>
                         {/* option icon */}
-                        {/* <div className = {styles.post_options}>
-                            <IconButton
-                                aria-label="more"
-                                aria-controls="long-menu"
-                                aria-haspopup="true"
-                                color="primary"
-                                onClick = {handleOptionSelectionOpener}
-                            >
-                                <IoEllipsisVertical size = "18"/>
-                            </IconButton>
-                            <Menu
-                                id="long-menu"
-                                anchorEl={anchorEl}
-                                keepMounted
-                                open={open}
-                                onClose={handleClose}
-                                PaperProps={{
-                                    style: {
-                                        maxHeight: ITEM_HEIGHT * 4.5,
-                                        width: '18ch',
-                                    },
-                                }}
-                            >
-                                {options.map((option) => (
-                                <MenuItem key={option} onClick={selectedOptionHandler}>
-                                    {option}
-                                </MenuItem>
-                                ))}
-                            </Menu>
-                        </div> */}
+                        <div>
+                            {
+                                (item.userId === authorisedUserDetails.userId) ? (
+                                    <div className = {styles.post_options}>
+                                        <IconButton
+                                            aria-label="more"
+                                            aria-controls="long-menu"
+                                            aria-haspopup="true"
+                                            color="primary"
+                                            onClick = {handleOptionSelectionOpener}
+                                        >
+                                            <IoEllipsisVertical size = "18"/>
+                                        </IconButton>
+                                        <Menu
+                                            id="long-menu"
+                                            anchorEl={anchorEl}
+                                            keepMounted
+                                            open={open}
+                                            onClose={handleClose}
+                                            PaperProps={{
+                                                style: {
+                                                    maxHeight: ITEM_HEIGHT * 4.5,
+                                                    width: '18ch',
+                                                },
+                                            }}
+                                        >
+                                            {options.map((option) => (
+                                            <MenuItem key={option} onClick={selectedOptionHandler}>
+                                                {option}
+                                            </MenuItem>
+                                            ))}
+                                        </Menu>
+                                    </div>
+                                ): ""
+                            }
+                        </div>
+                        
                     </div>
                     
                     {/* post text */}

@@ -16,7 +16,7 @@ export default function Routes() {
            <Route path = '/home' component = {Home} />
            <Route path = '/profile' component = {Profile} />
            <Route path = '/settings' component = {Settings} />
-           <Route path = '/fullPost' component = {FullPost} />
+           <Route path = {`/fullPost/:postId`} component = {FullPost} />
        </Switch>
     )
 }
