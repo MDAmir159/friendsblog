@@ -1,0 +1,29 @@
+.root-profile {
+    background-image: url("/src/media/854061.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+}
+.navbar {
+    background-image: linear-gradient(to right , #30555A ,#000);
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    z-index: 999;
+    padding-right: 20px;
+    overflow: hidden;
+    justify-content: space-between;
+  }
+
+  .body {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+  }

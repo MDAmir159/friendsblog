@@ -1,0 +1,247 @@
+.root-signup {
+    height: 100vh;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+    background-image: linear-gradient(to bottom ,  #486475 , #6cdac7  );
+    overflow: hidden;
+}
+
+.root-signup .box{
+    height: 95vh;
+    width: 60vw;
+    background-image: url("/src/media/forest_trees_art_127690_1920x1080.jpg");
+    box-shadow: 0px 0px 50px;
+}
+
+.root-signup .box .box-inner{
+    height: 100%;
+    overflow: auto;
+    width: 100%;
+    background-image: linear-gradient(to bottom , #7397a2 , #1e6175);
+    clip-path: polygon(0% 0% ,65% 0% , 85% 75% , 75% 100% , 0% 100%) ;
+}
+
+.root-signup  .box .box-inner .form-container{
+    display: flex;
+    height: auto;
+    width: 35vw;
+    margin-top: 10em;
+    margin-left: 5%;
+    padding-left: 3vw;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.root-signup .box .box-inner .form-container .form-title{
+    display: flex;
+    justify-content: left;
+    margin-top: 5%;
+}
+
+.root-signup .box .box-inner .form-container .form-title h2{
+    font-size: 3vw;
+    color: aliceblue;
+}
+
+.root-signup  .box .box-inner .form-container .form-group{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2vh;
+    margin-top: .5%;
+}
+
+.root-signup  .box .box-inner .form-container .form-group label{
+    font-size: 1em;
+    color: rgb(200, 255, 237);
+    opacity: 70%;
+}
+
+.root-signup  .box .box-inner .form-container .form-group .form-control-input{
+    /*  */
+    
+}
+
+.root-signup  .box .box-inner .form-container .form-group input{
+    color: #ffffff;
+}
+
+
+.root-signup  .box .box-inner .form-container .form-group input:focus{
+    /* border-bottom: 2px solid #16a085; */
+    color: #ffffff;
+    transition: 0.2s ease;
+    background-color: #486475;
+    padding-left: 1em;
+    font-size: 1em;
+}
+
+.root-signup  .box .box-inner .form-container .form-group input:hover{
+    cursor:pointer;
+}
+
+.root-signup  .box .box-inner .form-container .form-link{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10%;
+}
+
+.form-link .link {
+    color: rgb(200, 255, 237);
+    opacity: 70%;
+}
+
+.root-signup .box .box-inner .form-container .confirm{
+    display: flex;
+    justify-content:flex-end;
+}
+
+.root-signup  .box .box-inner .form-container .form-group button{
+    background-color: #1f334e;
+    color: rgb(200, 255, 237);
+    font-size: 1.5vw;
+    text-decoration: solid;
+    text-decoration-style: wavy;
+}
+
+@media screen and (max-width: 860px) {
+    .root-signup .box{
+        position: relative;
+        height: 95vh;
+        width: 75vw;
+        background-image: url("/src/media/forest_trees_art_127690_1920x1080.jpg");
+        background-position: left center;
+        box-shadow: 0px 0px 50px;    }
+
+    .root-signup .box .box-inner{
+        height: 100%;
+        overflow: auto;
+        width: 100%;
+        background-image: linear-gradient(to bottom , #7397a2 , #1e6175);
+        clip-path: polygon(0% 0% ,65% 0% , 95% 75% , 80% 100% , 0% 100%) ;
+    }
+
+    .root-signup .box .box-inner .form-container{
+        display: flex;
+        height: auto;
+        width: 50vw;
+        margin-top: 10em;
+        margin-left: 5%;
+        padding-left: 3vw;
+        flex-direction: column;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    .root-signup .box .box-inner .form-container .form-title h2{
+        font-size: 4vw;
+        color: aliceblue;
+    }
+
+    .root-signup  .box .box-inner .form-container .form-group label{
+        font-size: 2vw;
+        color: rgb(200, 255, 237);
+        opacity: 70%;
+    }
+
+    .root-signup  .box .box-inner .form-container .form-group button{
+        background-color: #1f334e;
+        color: rgb(200, 255, 237);
+        font-size: 2vw;
+        text-decoration: solid;
+        text-decoration-style: wavy;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .root-signup .box .box-inner .form-container .form-title h2{
+        font-size: 4.5vw;
+        color: aliceblue;
+    }
+
+    .root-signup  .box .box-inner .form-container .form-group label{
+        font-size: 2.5vw;
+        color: rgb(200, 255, 237);
+        opacity: 70%;
+    }
+
+    .form-link .link {
+        color: rgb(200, 255, 237);
+        opacity: 70%;
+        font-size: 2vw;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .root-signup {
+        height: 100vh;
+        display: flex;
+        /* align-items: center; */
+        justify-content: center;
+        align-items: center;
+        /* background-color: blue; */
+        background-image: url("/src/media/forest_trees_art_127690_1920x1080.jpg");
+        overflow: hidden;
+    }
+    .root-signup .box .box-inner{
+        height: 100%;
+        overflow: auto;
+        width: 100%;
+        background-image: linear-gradient(to bottom , #7397a2 , #1e6175);
+        clip-path: polygon(0% 0% ,100% 0% , 100% 0% , 100% 100% , 0% 100%) ;
+    }
+
+    .root-signup .box .box-inner .form-container{
+        display: flex;
+        height: auto;
+        width: 60vw;
+        margin-top: 0em;
+        margin-left: 0%;
+        padding-left: 0vw;
+        flex-direction: column;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: auto;
+        position: relative;
+    }
+
+    .root-signup .box .box-inner .form-container .form-title h2{
+        font-size: 6vw;
+        color: aliceblue;
+    }
+
+    .root-signup  .box .box-inner .form-container .form-group label{
+        font-size: 3.5vw;
+        color: rgb(200, 255, 237);
+        opacity: 70%;
+    }
+
+    .root-signup  .box .box-inner .form-container .form-group button{
+        background-color: #1f334e;
+        color: rgb(200, 255, 237);
+        font-size: 3vw;
+        text-decoration: solid;
+        text-decoration-style: wavy;
+    }
+
+    .form-link .link {
+        color: rgb(200, 255, 237);
+        opacity: 70%;
+        font-size: 3vw;
+    }
+}
+
+
+
+
+

@@ -1,0 +1,163 @@
+.mainPage{
+    height : 100vh;
+    width: 100vw;
+    font-family : Arial, Helvetica, sans-serif;
+    /* background-color: rgb(84, 179, 150); */
+    background-image: url("/src/media/elnik-tuman-les.jpg");
+    background-position: center;
+    background-size: cover;
+    overflow: scroll;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.mainContentContainer{
+    background-color : #edffed;
+    width : 60%;
+    margin-left: 20%;
+    padding: 20px;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    background-image: linear-gradient(to bottom right , #ffffff , #3e886f );
+    
+}
+
+.postHeader{
+    margin-left : 2ch;
+    padding-top : 1.5ch;
+    margin-top: 1em;
+    display : flex;
+    flex-direction : row;
+    justify-content : space-between;
+    margin-bottom : 2ch;
+}
+
+.postHeaderPostProviderNameDate{
+    max-width : 90%;
+    margin-left: 0.7em;
+    font-family : Arial, Helvetica, sans-serif;
+}
+
+.mainPage .mainContentContainer .postHeader .postHeaderPostProviderNameDate .postHeaderPostProviderName{
+
+}
+
+.postHeaderPostProviderNameStyle{
+    font-size : 22px;
+}
+.postHeaderPostProvidingTime{
+    margin-top : 1ch;
+}
+.postHeaderPostProvidingTimeStyle{
+    color : #b7c4b5;
+}
+/* .mainPage .mainContentContainer .postHeader  */
+.postOptions{
+    width : 8%;
+}
+/* .mainPage .mainContentContainer  */
+.postBody{
+    margin-left : 2ch;
+    padding-right : 2ch;
+}
+/* .mainPage .mainContentContainer .postBody  */
+.postBodyContainer{
+    width : 95%;
+    margin-left : 1.5em;
+    margin-top : 2ch;
+    margin-bottom : 2ch;
+}
+
+/* .mainPage .mainContentContainer .postBody .postBodyContainer  */
+.postTextStyle{
+    font-size : 15px;
+    color: #7b8379;
+    font-family : Arial, Helvetica, sans-serif;
+}
+
+/* .mainPage .mainContentContainer  */
+.postCommentDetails{
+    display : flex;
+    flex-direction : row;
+    margin-left : 1.4em;
+    margin-top : 1ch;
+    margin-bottom : 1ch;
+}
+
+.mainPage .mainContentContainer .postCommentDetails .postCommentDetailsIcon{
+
+}
+
+.mainPage .mainContentContainer .postCommentDetails .postCommentDetailsIcon .postCommentDetailsIconStyle{
+    color: #868d84;
+}
+
+.mainPage .mainContentContainer .postCommentDetails .postCommentNumber{
+    margin-left : 1ch;
+
+}
+
+.mainPage .mainContentContainer .postCommentDetails .postCommentNumber label{
+    color: #b7c4b5;
+}
+
+/* .mainPage .mainContentContainer  */
+.addComment{
+    display : flex;
+    flex-direction : row;
+    margin-left : 1.7ch;
+    margin-top : 1ch;
+    /* background-color :red; */
+}
+.mainPage .mainContentContainer .addComment .addCommentTextField{
+    width : 92%;
+    /* background-color : blue; */
+}
+.mainPage .mainContentContainer .addComment .addCommentTextField .addCommentStyle{
+    width : 100%;
+    border-width: 5em;
+
+}
+.mainPage .mainContentContainer .addComment .addCommentButton{
+    margin-left : 2ch;
+    background-color: black;
+    border-radius: 10em;
+}
+.mainPage .mainContentContainer .addComment .addCommentButton .addCommentButtonStyle{
+
+}
+.mainPage .mainContentContainer .postCommentList{
+    margin-left : 2ch;
+}
+
+@media screen and (max-width: 860px) {
+    .mainContentContainer{
+        background-color : #edffed;
+        width : 80%;
+        margin-left: 10%;
+        padding: 20px;
+        border-bottom-left-radius: 1em;
+        border-bottom-right-radius: 1em;
+        border-top-left-radius: 1em;
+        border-top-right-radius: 1em;
+        background-image: linear-gradient(to bottom right , #ffffff , #3e886f );
+        
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .mainContentContainer{
+        background-color : #edffed;
+        width :90%;
+        margin-left: 5%;
+        padding: 20px;
+        border-bottom-left-radius: 1em;
+        border-bottom-right-radius: 1em;
+        border-top-left-radius: 1em;
+        border-top-right-radius: 1em;
+        background-image: linear-gradient(to bottom right , #ffffff , #3e886f );
+        
+    }
+}

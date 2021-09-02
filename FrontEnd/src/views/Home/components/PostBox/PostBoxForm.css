@@ -1,0 +1,95 @@
+.root_postBox {
+    display : flex;
+    background-Color : #edf2f2;
+    width : 55vw;
+    height : 29ch;
+    flex-Direction : column;
+    border-Radius : 6px;
+    border: 1;
+    border-Style: solid;
+    margin-Top : 2ch;
+    margin-Bottom : 2ch;
+    align-Self: center;
+}
+
+.root_postBox .box {
+    display : flex;
+    justify-Content : center;
+    height : 83%;
+    width : 96%;
+    margin-Top : 2%;
+    margin-Left : 2%;
+}
+
+.root_postBox .button_div {
+    display : flex;
+    margin-right: 4%;
+    margin-Left : 4%;
+    justify-content: flex-end;
+}
+
+.root_postBox .button_div .button_desgin {
+    background-Color : #00947e;
+    
+}
+
+.root_postBox .box .textfield_design {
+    width : 96%;
+    margin-Top : 2%;
+    font-size: 25px;
+}
+
+.root_postBox .button_div .button_label {
+    color : '#ffffff';
+}
+
+@media screen and (max-width: 860px) {
+    .root_postBox {
+        display : flex;
+        background-Color : #edf2f2;
+        width : 65vw;
+        height : 29ch;
+        flex-Direction : column;
+        border-Radius : 6px;
+        border: 1;
+        border-Style: solid;
+        margin-Top : 2ch;
+        margin-Bottom : 2ch;
+        align-Self: center;
+    }
+
+}
+
+@media screen and (max-width: 720px) {
+    .root_postBox {
+        display : flex;
+        background-Color : #edf2f2;
+        width : 80vw;
+        height : 29ch;
+        flex-Direction : column;
+        border-Radius : 6px;
+        border: 1;
+        border-Style: solid;
+        margin-Top : 2ch;
+        margin-Bottom : 2ch;
+        align-Self: center;
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+    .root_postBox {
+        display : flex;
+        background-Color : #edf2f2;
+        width : 85vw;
+        height : 29ch;
+        flex-Direction : column;
+        border-Radius : 6px;
+        border: 1;
+        border-Style: solid;
+        margin-Top : 2ch;
+        margin-Bottom : 2ch;
+        align-Self: center;
+    }
+
+}
