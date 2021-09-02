@@ -1,0 +1,15 @@
+.root-home{
+    background-image: url("/src/media/96694.jpg");
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+}
+
+.home-container{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
