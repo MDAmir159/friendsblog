@@ -3,7 +3,7 @@ import Settings from './Settings';
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 import  {myFormattedTime} from '../../../../../../../functions/utilities'
-import {PORT} from '../../../../../../../backEndPort'
+import {URL} from '../../../../../../../urls/url'
 import { getloggedInUsersInfo } from '../../../../../../../Utility';
 
 export default function (props) {
@@ -34,13 +34,13 @@ export default function (props) {
 
 
     const postUpdatedData = () => {
-        axios.post(`http://localhost:${PORT}/profile/settings/updateUserInfo` , {updateUserDetails})
+        axios.post(URL.UPDATE_USER_INFO_URL , {updateUserDetails})
             .then((res) =>{
             })
     }
 
     const getUpdatedData = () => {
-        axios.post(`http://localhost:${PORT}/profile/settings/userInfo` , {updateUserDetails})
+        axios.post(URL.USERINFO_SETTINGS_URL , {updateUserDetails})
             .then((res) =>{
                 if(res.data.length){
                     setAuthorisedUserDetails(res.data[0])

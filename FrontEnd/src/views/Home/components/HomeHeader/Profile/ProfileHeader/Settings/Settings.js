@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios'
-import {PORT} from '../../../../../../../backEndPort'
+import {URL} from '../../../../../../../urls/url';
 import { Button , TextField, Divider } from '@material-ui/core';
 import ProfileHeader from '../../ProfileHeader';
 import '../Status/StatusView.css'
@@ -26,7 +26,7 @@ export default function Settings(props) {
     ///// value will come from backEnd
     //// query to find out the filtered posts ... those are posted by the user
     useEffect(() => {
-        axios.post(`http://localhost:${PORT}/profile/Status/userPosts` , {authorisedUserDetails})
+        axios.post(URL.USERS_POST_URL , {authorisedUserDetails})
             .then((res) =>{
                 if(res.data.length){
                     setUserPostItemsIntel(res.data)

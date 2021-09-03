@@ -33,7 +33,7 @@ router.post('/postNewElements',(req,res) =>{
 })
 
 router.get("/postListItems",(req,res) =>{
-    const sqlQuery = `SELECT * FROM posts`;
+    const sqlQuery = `SELECT * FROM posts ORDER BY postId DESC`;
     db.query( sqlQuery ,(error,rows) =>{
         if(error){
             console.log(error);

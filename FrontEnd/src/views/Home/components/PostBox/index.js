@@ -3,7 +3,7 @@ import React , {useState, useEffect} from 'react'
 import { useHistory } from 'react-router-dom';
 import { PostModel } from '../../../../model/PostModel.js';
 import PostBoxForm from './PostBoxForm'
-import {PORT} from '../../../../backEndPort'
+import {URL} from '../../../../urls/url';
 import { myFormattedTime } from '../../../../functions/utilities.js';
 
 export default function PostBox(props) {
@@ -19,7 +19,7 @@ export default function PostBox(props) {
         console.log("inside saving to database");
         try {
             console.log("sldfnjcn");
-            const result = await axios.post(`http://localhost:${PORT}/homeElements/postNewElements`, {tempNewPost})
+            const result = await axios.post(URL.POST_NEW_ELEMENT_URL, {tempNewPost})
             console.log("jasdnasb");
             console.log(result);
         } catch (error) {

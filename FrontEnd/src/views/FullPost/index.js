@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import axios from 'axios'
-import {PORT} from '../../backEndPort'
+import {URL} from '../../urls/url'
 import { myFormattedTime } from '../../functions/constFunctions';
 import { PostCommentModel } from '../../model/PostCommentModel';
 import PostComment from './PostComments';
@@ -23,7 +23,7 @@ export default function FullPost() {
     }, [isAllSet])
 
     const submitComment = () => {
-        axios.post(`http://localhost:${PORT}/post/postComment` , {tempComment})
+        axios.post(URL.SUBMIT_COMMENT_URL , {tempComment})
             .then((res) =>{
                 console.log(res);
             })
@@ -33,7 +33,7 @@ export default function FullPost() {
     }
 
     const fetchCommentsOnPost = () => {
-        axios.post(`http://localhost:${PORT}/post/fetchComments`,{postDetails})
+        axios.post(URL.FETCH_COMMENT_URL,{postDetails})
         .then((res) =>{
             if(res.data.length){
                 setCommentsOnPost(res.data)

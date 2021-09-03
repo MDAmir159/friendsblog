@@ -3,6 +3,8 @@ import LogInForm from './LogInForm';
 import {useHistory } from 'react-router-dom'
 import axios from 'axios';
 import { PORT } from '../../backEndPort';
+import { ADDRESS } from '../../BackendAddress';
+import { URL } from '../../urls/url';
 import { ObjectToBeSavedInBrowser } from '../../model/ObjectToBeSavedInBrowser';
 import { getLoggedIn } from '../../Utility';
 
@@ -48,7 +50,7 @@ export default function LogIn() {
     const loginSubmitHandler = (e) =>{
         e.preventDefault();
         if(tempUserDetails.tempUserEmail && tempUserDetails.tempUserHandleName && tempUserDetails.tempUserPassword){
-            axios.post(`http://localhost:${PORT}/logIn/login`,{tempUserDetails})
+            axios.post(URL.LOGIN_URL, {tempUserDetails})
             .then((res) =>{
                 saveToBrowserStorage(res.data[0]);
                 if(res.data.length){

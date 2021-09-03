@@ -2,7 +2,10 @@ import React , {useState, useEffect} from 'react'
 import PostView from './PostView';
 import { useHistory } from 'react-router';
 import axios from 'axios';
-import {PORT} from '../../../../../backEndPort'
+import {PORT} from '../../../../../backEndPort';
+import { URL } from '../../../../../urls/url';
+
+
 
 export default function Post(props) {
 
@@ -26,7 +29,7 @@ export default function Post(props) {
 
     //check if the post is liked
     const checkLikedStatus = () => {
-        axios.post(`http://localhost:${PORT}/post/checkLiked`,{item, authorisedUserDetails})
+        axios.post(URL.CHECK_LIKED_URL, {item, authorisedUserDetails})
         .then((res) =>{
             if(res.data.length){
                 setIsLiked(true)
@@ -39,7 +42,7 @@ export default function Post(props) {
 
     // like the post
     const likeThePost = () => {
-        axios.post(`http://localhost:${PORT}/post/likePost`,{item, authorisedUserDetails})
+        axios.post(URL.LIKEPOST_URL, {item, authorisedUserDetails})
         .then((res) =>{
             console.log(res)
         })
@@ -47,7 +50,7 @@ export default function Post(props) {
 
     //unlike the post
     const unLikeThePost = () => {
-        axios.post(`http://localhost:${PORT}/post/unlikePost`,{item, authorisedUserDetails})
+        axios.post(URL.UNLIKEPOST_URL,{item, authorisedUserDetails})
         .then((res) =>{
             console.log(res)
         })

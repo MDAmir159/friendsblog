@@ -3,6 +3,7 @@ import SignInForm from './SignInForm'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 import {PORT} from '../../backEndPort'
+import { URL } from '../../urls/url'
 import  {myFormattedTime} from '../../functions/utilities'
 
 export default function SignUp() {
@@ -30,7 +31,7 @@ export default function SignUp() {
     React.useEffect( async ()=>{
         ///// saving to database ///////
         try {
-            const response = await axios.post(`http://localhost:${PORT}/signUp/signup` , {newUserDetails})
+            const response = await axios.post(URL.SIGNUP_URL , {newUserDetails})
             console.log(response);
         } catch (error) {
             console.log(error);        

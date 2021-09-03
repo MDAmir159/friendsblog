@@ -3,7 +3,7 @@ import React , {useState, useEffect} from 'react'
 import { useLocation } from 'react-router-dom';
 import PostBox from './components/PostBox'
 import HomeElements from './HomeElements'
-import {PORT} from '../../backEndPort'
+import { URL } from '../../urls/url';
 import { getloggedInUsersInfo } from '../../Utility';
 
 export default function Home(props) {
@@ -18,7 +18,7 @@ export default function Home(props) {
     ///////////////////////////////////////////        controller     ///////////////////////////////////////////
 
     useEffect(() => {
-        axios.get(`http://localhost:${PORT}/homeElements/postListItems`)
+        axios.get(URL.POST_LIST_ITEMS_URL)
         .then((res)=>{
             setPostItemsIntel(res.data);
         })

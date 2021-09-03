@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import PostLists from '../../../../PostLists'
-import {PORT} from '../../../../../../../backEndPort'
+import {URL} from '../../../../../../../urls/url';
 import { Divider } from '@material-ui/core';
 import ProfileHeader from '../../ProfileHeader';
 import './StatusView.css'
@@ -14,7 +14,7 @@ export default function StatusView(props) {
     ///// value will come from backEnd
     //// query to find out the filtered posts ... those are posted by the user
     React.useEffect(() => {
-        axios.post(`http://localhost:${PORT}/profile/Status/userPosts` , {authorisedUserDetails})
+        axios.post(URL.USERS_POST_URL , {authorisedUserDetails})
             .then((res) =>{
                 if(res.data.length){
                     setUserPostItemsIntel(res.data)
