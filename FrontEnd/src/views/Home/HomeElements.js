@@ -7,8 +7,6 @@ export default function HomeElements(props) {
     ///////////////////////////////////////////////////////////////////////////////////////////////
     const {
         newPost , 
-        authorisedUserDetails, 
-        setAuthorisedUserDetails, 
         postItemsIntel, 
         setNewPost
     } = props;
@@ -20,17 +18,12 @@ export default function HomeElements(props) {
         <div className = "root-home">
             <div className = "home-container">
              
-                <HomeHeader
-                    authorisedUserDetails = {authorisedUserDetails}
-                    setAuthorisedUserDetails = {setAuthorisedUserDetails}
-                />
+                <HomeHeader />
                 <PostBox 
                     newPost = {newPost}
-                    authorisedUserDetails = {authorisedUserDetails}
                     setNewPost = {setNewPost}
                 />
                 <PostLists 
-                    authorisedUserDetails = {authorisedUserDetails}
                     postItemsIntel = {postItemsIntel}
                 />
                

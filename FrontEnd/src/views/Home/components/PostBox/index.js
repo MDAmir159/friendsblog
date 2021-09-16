@@ -5,12 +5,14 @@ import { PostModel } from '../../../../model/PostModel.js';
 import PostBoxForm from './PostBoxForm'
 import {URL} from '../../../../urls/url';
 import { myFormattedTime } from '../../../../functions/utilities.js';
+import {useSelector, useDispatch} from 'react-redux';
 
 export default function PostBox(props) {
     
     /////////////////////////////////////////////////////////////   model /////////////////////////////////////////////////////////////
 
-    const {newPost , authorisedUserDetails , setNewPost} = props;
+    const login_details = useSelector(state => state.loginStatusReducer)
+    const {newPost , setNewPost} = props;
     const [tempPostDescription, setTempPostDescription] = useState("");
 
     ///////////////////////////////////////////////////////////// controller //////////////////////////////////////////////////////////
@@ -36,7 +38,7 @@ export default function PostBox(props) {
     // post publishing conformation
     const onSubmitPostDescriptionHandler = (e) =>{
         e.preventDefault();
-        const tempNewPost = new PostModel(tempPostDescription,authorisedUserDetails.userHandle,authorisedUserDetails.userId);
+        const tempNewPost = new PostModel(tempPostDescription,login_details.authorisedUser.userHandle,login_details.authorisedUser.userId);
         console.log(tempNewPost);
         savingToDatabase(tempNewPost);
     }
@@ -45,7 +47,6 @@ export default function PostBox(props) {
     
     return <PostBoxForm
                 tempPostDescription = {tempPostDescription}
-                authorisedUserDetails = {authorisedUserDetails}
                 onChangePostDescriptionHandler = {onChangePostDescriptionHandler}
                 onSubmitPostDescriptionHandler = {onSubmitPostDescriptionHandler}
             />

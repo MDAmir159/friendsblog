@@ -4,7 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default function PostListitems(props) {
     const {
-        authorisedUserDetails,
         postItemsIntel
     } = props;
     //console.log(postItemsIntel);
@@ -26,7 +25,7 @@ export default function PostListitems(props) {
         <div className={styles.root}>
             <div className={styles.lists_root}>
                 {
-                    postItemsIntel.map((item , index) => <Post key = {index} value = {item} authorisedUserDetails = {authorisedUserDetails}/>)
+                    postItemsIntel.map((item , index) => <Post key = {index} value = {item}/>)
                 }
             </div>
         </div>

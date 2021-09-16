@@ -4,16 +4,17 @@ import { useHistory } from 'react-router';
 import axios from 'axios';
 import {PORT} from '../../../../../backEndPort';
 import { URL } from '../../../../../urls/url';
-
-
+import {useSelector, useDispatch} from 'react-redux';
 
 export default function Post(props) {
 
     // console.log(props);
     /// init post item
+    const login_details = useSelector(state => state.loginStatusReducer)
+    const authorisedUserDetails = login_details.authorisedUser;
     const [item, setItem] = useState(props.value)
-    const [authorisedUserDetails, setAuthorisedUserDetails] = useState(props.authorisedUserDetails)
     /// init menu
+    
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const [noOfLikes, setNoOfLikes] = useState(item.likes_number)
@@ -50,7 +51,7 @@ export default function Post(props) {
 
     //unlike the post
     const unLikeThePost = () => {
-        axios.post(URL.UNLIKEPOST_URL,{item, authorisedUserDetails})
+        axios.post(URL.UNLIKEPOST_URL, {item, authorisedUserDetails})
         .then((res) =>{
             console.log(res)
         })
@@ -93,7 +94,7 @@ export default function Post(props) {
             pathname : `/fullpost/${item.postId}`,
             state : {
                 data : item,
-                userData : authorisedUserDetails
+                userData : login_details.authorisedUser
             }
         })
         console.log("comment button prossed");
@@ -115,7 +116,6 @@ export default function Post(props) {
                 anchorEl = {anchorEl}
                 noOfLikes = {noOfLikes}
                 isLiked = {isLiked}
-                authorisedUserDetails = {props.authorisedUserDetails}
                 comments_number = {item.comments_number}
 
                 onClickLikeButtonHandler = {onClickLikeButtonHandler}

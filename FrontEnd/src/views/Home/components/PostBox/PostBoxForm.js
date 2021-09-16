@@ -2,17 +2,18 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import { Button , TextField } from '@material-ui/core';
 import './PostBoxForm.css'
+import {useSelector, useDispatch} from 'react-redux';
 
 export default function PostBoxForm(props) {
     const{
         tempPostDescription,
-        authorisedUserDetails,
         onChangePostDescriptionHandler,
         onSubmitPostDescriptionHandler
     } = props;
 
+    const login_details = useSelector(state => state.loginStatusReducer)
 
-    const postLabel = "What's on your mind," + authorisedUserDetails.userHandle + " ?";
+    const postLabel = "What's on your mind," + login_details.authorisedUser.userHandle + " ?";
 
     return (
         <div className = "root_postBox">

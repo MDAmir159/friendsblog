@@ -1,14 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import { ObjectToBeSavedInBrowser } from '../../../../model/ObjectToBeSavedInBrowser';
 import Routes from '../../../../Routes';
 import { getLoggedOut } from '../../../../Utility';
-import HomeHeaderElements from './HomeHeaderElements'
+import HomeHeaderElements from './HomeHeaderElements';
+import {useSelector, useDispatch} from 'react-redux';
+import {LogoutAction} from '../../../../redux/actions';
 
-export default function HomeHeader(props) {
-    const {authorisedUserDetails, setAuthorisedUserDetails} = props;
+export default function HomeHeader() {
+
+    const login_details = useSelector(state => state.loginStatusReducer)
+    const dispatch = useDispatch();
+
+    const [authorisedUserDetails, setAuthorisedUserDetails] = useState(login_details.authorisedUser);
 
     let history = useHistory();
+
+    console.log(login_details.authorisedUser);
 
     const onClickProfileIconHandler = () =>{
         history.push({
@@ -21,7 +29,7 @@ export default function HomeHeader(props) {
         ////////// saving user info locally as being logged in   /////////////////
         const objectToBeSaved = new ObjectToBeSavedInBrowser(false,"");
         getLoggedOut('DLGT_PROJECT2_postGivingAppRemastered',JSON.stringify(objectToBeSaved));
-
+        dispatch(LogoutAction())
         ////////// setting new path  //////////
         history.push({
             pathname : '/login'

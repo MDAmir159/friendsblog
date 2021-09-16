@@ -9,6 +9,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import { Divider } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import './PostView.css'
+import {useSelector, useDispatch} from 'react-redux';
+
 export default function PostView(props) {
     ///// recieving props
     const {
@@ -26,6 +28,8 @@ export default function PostView(props) {
         selectedOptionHandler , 
         handleClose
     } = props;
+
+    const login_details = useSelector(state => state.loginStatusReducer)
 
     ///styling constants
     const useStyles = makeStyles((theme) => ({
@@ -106,7 +110,6 @@ export default function PostView(props) {
         'Delete'
     ];
 
-    console.log(item);
 
     return (
             <div className = "root-postview">
@@ -130,7 +133,7 @@ export default function PostView(props) {
                         {/* option icon */}
                         <div>
                             {
-                                (item.userId === authorisedUserDetails.userId) ? (
+                                (item.userId === login_details.authorisedUser.userId) ? (
                                     <div className = "post_options">
                                         <IconButton
                                             aria-label="more"

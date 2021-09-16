@@ -5,16 +5,15 @@ import PostBox from './components/PostBox'
 import HomeElements from './HomeElements'
 import { URL } from '../../urls/url';
 import { getloggedInUsersInfo } from '../../Utility';
+import {useSelector, useDispatch} from 'react-redux';
 
 export default function Home(props) {
     
-    let location = useLocation()
+    const login_details = useSelector(state => state.loginStatusReducer)
 
     ////////////////////////////////////////////     model portion     ///////////////////////////////////////
     const [newPost, setNewPost] = useState();
-    const [postItemsIntel, setPostItemsIntel] = useState([]);
-    const [authorisedUserDetails, setAuthorisedUserDetails] = useState(getloggedInUsersInfo());
-    
+    const [postItemsIntel, setPostItemsIntel] = useState([]);    
     ///////////////////////////////////////////        controller     ///////////////////////////////////////////
 
     useEffect(() => {
@@ -26,8 +25,6 @@ export default function Home(props) {
     ///////////////////////////////////////   view   /////////////////////////////////////////////////////
     return <HomeElements 
                 newPost = {newPost}
-                authorisedUserDetails = {authorisedUserDetails}
-                setAuthorisedUserDetails = {setAuthorisedUserDetails}
                 postItemsIntel = {postItemsIntel}
                 setNewPost = {setNewPost}
             />

@@ -2,18 +2,18 @@ import React , {useState } from 'react'
 import LogInForm from './LogInForm';
 import {useHistory } from 'react-router-dom'
 import axios from 'axios';
-import { PORT } from '../../backEndPort';
-import { ADDRESS } from '../../BackendAddress';
 import { URL } from '../../urls/url';
 import { ObjectToBeSavedInBrowser } from '../../model/ObjectToBeSavedInBrowser';
 import { getLoggedIn } from '../../Utility';
+import {useSelector, useDispatch} from 'react-redux';
+import {LogInAction} from '../../redux/actions';
 
 export default function LogIn() {
-
     ////////////////////////////////////////////   model portion    ////////////////////////////////////////////////////
+    const login_details = useSelector(state => state.loginStatusReducer)
 
-    const [authorisedUserDetails, setAuthorisedUserDetails] = useState(new Object());
-    const [isLoggedIn, setIsLoggedIn] = useState(true)
+    const dispatch = useDispatch();
+
     const [tempUserDetails, setTempUserDetails] = useState({
         tempUserHandleName : "",
         tempUserEmail : "",
@@ -54,20 +54,17 @@ export default function LogIn() {
             .then((res) =>{
                 saveToBrowserStorage(res.data[0]);
                 if(res.data.length){
+                    dispatch(LogInAction(res.data[0]));
                     history.push({
                         pathname : '/',
-                        state : {data : res.data[0]}
                     });
-                    
-                    setAuthorisedUserDetails(res.data[0]);
                 } else {
                     alert('No matches !!')
                 }
             })
         } else {
-            alert('What are doing??')
+            alert('What are you doing??')
         }
-        
     }
 
 
