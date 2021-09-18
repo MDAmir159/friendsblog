@@ -4,12 +4,15 @@ import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 import  {myFormattedTime} from '../../../../../../../functions/utilities'
 import {URL} from '../../../../../../../urls/url'
-import { getloggedInUsersInfo } from '../../../../../../../Utility';
+import {LogInAction} from '../../../../../../../redux/actions';
+import {useSelector, useDispatch} from 'react-redux';
+
 
 export default function (props) {
     // const {authorisedUserDetails, setAuthorisedUserDetails} = props;
-
-    const [authorisedUserDetails, setAuthorisedUserDetails] = useState(getloggedInUsersInfo)
+    const login_details = useSelector(state => state.loginStatusReducer)
+    const authorisedUserDetails = login_details.authorisedUser;
+    const dispatch = useDispatch();
 
     const [isChanged, setIsChanged] = useState(false)
     const [isSignedUp, setIsSignedUp] = useState(false)
@@ -43,7 +46,7 @@ export default function (props) {
         axios.post(URL.USERINFO_SETTINGS_URL , {updateUserDetails})
             .then((res) =>{
                 if(res.data.length){
-                    setAuthorisedUserDetails(res.data[0])
+                    dispatch(LogInAction(res.data[0]));
                 } else {
                     console.log('no data')
                 }
@@ -51,7 +54,6 @@ export default function (props) {
     }
 
     React.useEffect(()=>{
-        ///// saving to database ///////
         getUpdatedData();
     } , [isAllSet])
 
@@ -127,7 +129,7 @@ export default function (props) {
                 ...updateUserDetails , userUpdatedTime : myFormattedTime()
             })
             postUpdatedData();
-
+            setUpdateUserDetails('');
             setIsAllSet(true);
         } else {
             alert('!!! Check current password !!!')

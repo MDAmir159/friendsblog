@@ -7,26 +7,26 @@ import axios from 'axios'
 import {Link} from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import './Status/StatusView.css';
-
+import {useSelector, useDispatch} from 'react-redux';
 
 export default function ProfileHeaderCom(props) {
-    
-    const {authorisedUserDetails, userPostItemsIntel} = props;
+    const login_details = useSelector(state => state.loginStatusReducer)    
+    const {userPostItemsIntel} = props;
 
     return (
         <div>
             <div className="user-info">
                 {/**profile picture */} 
-                <div className="profile-photo"><h1>{authorisedUserDetails.userHandle[0]}</h1></div>
+                <div className="profile-photo"><h1>{login_details.authorisedUser.userHandle[0]}</h1></div>
 
                 {/**profile information */}
                 <div className="profiledetails">
                     <div>
-                        <h3>{authorisedUserDetails.userName}</h3>
+                        <h3>{login_details.authorisedUser.userName}</h3>
                         <p>
-                            <b>Userhandle:</b> {authorisedUserDetails.userHandle}<br/>
-                            <b>Email address:</b> {authorisedUserDetails.userEmailAddress}<br/>
-                            <b>Phone number:</b> {authorisedUserDetails.userPhoneNumber}<br/>
+                            <b>Userhandle:</b> {login_details.authorisedUser.userHandle}<br/>
+                            <b>Email address:</b> {login_details.authorisedUser.userEmailAddress}<br/>
+                            <b>Phone number:</b> {login_details.authorisedUser.userPhoneNumber}<br/>
                         </p>
                     </div>
 

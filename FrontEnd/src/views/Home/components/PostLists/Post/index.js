@@ -94,7 +94,6 @@ export default function Post(props) {
             pathname : `/fullpost/${item.postId}`,
             state : {
                 data : item,
-                userData : login_details.authorisedUser
             }
         })
         console.log("comment button prossed");

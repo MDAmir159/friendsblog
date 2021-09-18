@@ -93,7 +93,7 @@ export default function FullPostView(props) {
                     </div>
                     {/* <Divider style={{ background: 'black' , width : '90%' , marginLeft : '5%' }} /> */}
                     <div className = "postCommentList">
-                        <PostComment postDetails={postDetails} commentsOnPost={commentsOnPost}/>
+                        <PostComment commentsOnPost={commentsOnPost}/>
                     </div>
             </div>
         </div>

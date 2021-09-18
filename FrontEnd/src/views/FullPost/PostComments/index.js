@@ -4,7 +4,7 @@ import axios from 'axios'
 import {PORT} from '../../../backEndPort'
 
 export default function PostComment(props) {
-    const {postDetails, commentsOnPost} = props
+    const { commentsOnPost} = props
 
     return(
         <div>

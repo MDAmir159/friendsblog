@@ -13,7 +13,7 @@ const loginStatusReducer = (state = initialState, action) => {
                 loggedin: true,
                 authorisedUser: action.payload,
             }
-        case 'USERLOGOUT':
+        case type.USERLOGOUT:
             return {
                 ...state,
                 loggedin: false,

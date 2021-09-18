@@ -36,12 +36,11 @@ export default function SignUp() {
         } catch (error) {
             console.log(error);        
         }
-        console.log(newUserDetails);
     } , [isAllSet])
 
      /////// redirecting to login page
     if(isSignedUp){
-        return <Redirect to = "/" />
+        return <Redirect to = "/login" />
     }
 
     // getting user handle name

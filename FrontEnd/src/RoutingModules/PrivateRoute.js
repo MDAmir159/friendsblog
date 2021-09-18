@@ -1,6 +1,5 @@
 import React from 'react'
 import { Route , Redirect } from 'react-router-dom'
-import { isLoggedIn } from '../Utility';
 import {useSelector} from 'react-redux';
 
 

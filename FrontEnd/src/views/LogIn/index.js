@@ -3,8 +3,6 @@ import LogInForm from './LogInForm';
 import {useHistory } from 'react-router-dom'
 import axios from 'axios';
 import { URL } from '../../urls/url';
-import { ObjectToBeSavedInBrowser } from '../../model/ObjectToBeSavedInBrowser';
-import { getLoggedIn } from '../../Utility';
 import {useSelector, useDispatch} from 'react-redux';
 import {LogInAction} from '../../redux/actions';
 
@@ -41,18 +39,12 @@ export default function LogIn() {
         })
     }
 
-    const saveToBrowserStorage = value =>{
-        const objectToBeSaved = new ObjectToBeSavedInBrowser(true,value);
-        getLoggedIn('DLGT_PROJECT2_postGivingAppRemastered',JSON.stringify(objectToBeSaved));
-    }
-
     /// controller portion
     const loginSubmitHandler = (e) =>{
         e.preventDefault();
         if(tempUserDetails.tempUserEmail && tempUserDetails.tempUserHandleName && tempUserDetails.tempUserPassword){
             axios.post(URL.LOGIN_URL, {tempUserDetails})
             .then((res) =>{
-                saveToBrowserStorage(res.data[0]);
                 if(res.data.length){
                     dispatch(LogInAction(res.data[0]));
                     history.push({

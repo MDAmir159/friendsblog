@@ -4,20 +4,23 @@ import { CgProfile } from "react-icons/cg";
 import { Button  } from '@material-ui/core';
 import { RiLogoutCircleRLine } from 'react-icons/ri';
 import './HomeHeaderElements.css'
+import {useSelector, useDispatch} from 'react-redux';
+
 
 export default function HomeHeaderElements(props) {
     const {
-        authorisedUserDetails , 
         onClickProfileIconHandler,
         onClickLogOutHandler
     } = props;
+
+    const login_details = useSelector(state => state.loginStatusReducer)
 
     return (
         <div className = "root-home-header">
             {/* logged in as portion */}
             <div className = "header_title">
                 <p className = "logger_name">
-                    <b>{authorisedUserDetails.userName}</b>
+                    <b>{login_details.authorisedUser.userName}</b>
                 </p>
             </div>
 

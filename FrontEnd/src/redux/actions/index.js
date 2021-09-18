@@ -9,6 +9,6 @@ export const LogInAction = (userData) => {
 
 export const LogoutAction = () => {
     return {
-        type: 'USERLOGOUT',
+        type: type.USERLOGOUT,
     };
 };

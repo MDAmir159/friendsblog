@@ -5,11 +5,14 @@ import {URL} from '../../../../../../../urls/url';
 import { Divider } from '@material-ui/core';
 import ProfileHeader from '../../ProfileHeader';
 import './StatusView.css'
+import {useSelector, useDispatch} from 'react-redux';
 
 export default function StatusView(props) {
 
-    const {authorisedUserDetails} = props;
     const [userPostItemsIntel, setUserPostItemsIntel] = React.useState([])
+    const login_details = useSelector(state => state.loginStatusReducer)
+    const authorisedUserDetails = login_details.authorisedUser
+
     
     ///// value will come from backEnd
     //// query to find out the filtered posts ... those are posted by the user
@@ -29,11 +32,10 @@ export default function StatusView(props) {
     return (
         <div className="root-status">
             {/**profile part */}
-            <ProfileHeader authorisedUserDetails= {authorisedUserDetails} userPostItemsIntel={userPostItemsIntel} />
+            <ProfileHeader userPostItemsIntel={userPostItemsIntel} />
             {/**posts section */}
             <div className="user-post">
                 <PostLists 
-                    authorisedUserDetails = {authorisedUserDetails}
                     postItemsIntel = {userPostItemsIntel}
                 />
             </div>

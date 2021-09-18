@@ -12,14 +12,6 @@ export default function PostCommentView({value}) {
             display : 'flex',
             flexDirection : 'row'
         },
-        commnerterName:{
-
-        },
-
-        commnerterNameStyle:{
-            
-        },
-
         commentTime:{
             marginLeft : '1ch'
         },

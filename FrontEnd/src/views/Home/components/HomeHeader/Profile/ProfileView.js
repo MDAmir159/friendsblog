@@ -6,21 +6,16 @@ import { Button  } from '@material-ui/core';
 import Settings from './ProfileHeader/Settings';
 import Status from './ProfileHeader/Status';
 import { makeStyles } from '@material-ui/core/styles';
-import { getloggedInUsersInfo } from '../../../../../Utility';
 import './ProfileView.css'
 import { IoHome } from 'react-icons/io5';
+import {useSelector, useDispatch} from 'react-redux';
+
 
 export default function ProfileView() {
+    const login_details = useSelector(state => state.loginStatusReducer)
 
-
-    let location = useLocation();
     let history = useHistory();
-
     const {path,url} = useRouteMatch();
-
-    const [authorisedUserDetails, setAuthorisedUserDetails] = useState(getloggedInUsersInfo());
-    
-    
 
     const useStyles = makeStyles(theme => ({
         root:{
@@ -59,7 +54,7 @@ export default function ProfileView() {
                         </Button>
                     </div>
                     <p className = {styles.logger_name}>
-                        <b>{authorisedUserDetails.userHandle}</b>
+                        <b>{login_details.authorisedUser.userHandle}</b>
                     </p>
                     <div className="links">
                         <Link as = {Link} to={`${url}`}> 
@@ -77,15 +72,10 @@ export default function ProfileView() {
                 <div className="body">
                 <Switch>
                     <Route exact path={`${path}`}>
-                        <Status 
-                            authorisedUserDetails = {authorisedUserDetails}
-                        />
+                        <Status />
                     </Route>
                     <Route path={`${path}/asd`}>
-                        <Settings 
-                            authorisedUserDetails = {authorisedUserDetails}
-                            setAuthorisedUserDetails = {setAuthorisedUserDetails}
-                        />
+                        <Settings />
                     </Route>
                 </Switch>
                 </div>

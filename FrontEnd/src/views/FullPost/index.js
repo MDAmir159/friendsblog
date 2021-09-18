@@ -5,13 +5,16 @@ import {URL} from '../../urls/url'
 import { myFormattedTime } from '../../functions/constFunctions';
 import { PostCommentModel } from '../../model/PostCommentModel';
 import PostComment from './PostComments';
-import FullPostView from './FullPostView'
+import FullPostView from './FullPostView';
+import {useSelector, useDispatch} from 'react-redux';
 
 export default function FullPost() {
     let location = useLocation();
+
+    const login_details = useSelector(state => state.loginStatusReducer)
+
     const [postDetails, setPostDetails] = React.useState(location.state.data);
-    const [authorisedUserDetails, setAuthorisedUserDetails] = React.useState(location.state.userData);
-    const [tempComment, setTempCommnet] = React.useState(new PostCommentModel("",authorisedUserDetails.userName,authorisedUserDetails.userId,postDetails.postId));
+    const [tempComment, setTempCommnet] = React.useState(new PostCommentModel("",login_details.authorisedUser.userName, login_details.authorisedUser.userId,postDetails.postId));
     const [commentsOnPost, setCommentsOnPost] = React.useState([])
     const [totalComments, setTotalComments] = React.useState();
     const [isAllSet, setIsAllSet] = React.useState(false)
@@ -19,7 +22,6 @@ export default function FullPost() {
 
     React.useEffect(() => {
         fetchCommentsOnPost();
-        
     }, [isAllSet])
 
     const submitComment = () => {
@@ -27,9 +29,7 @@ export default function FullPost() {
             .then((res) =>{
                 console.log(res);
             })
-        setTempCommnet({
-            ...tempComment,commentDescription : ""
-        })
+        
     }
 
     const fetchCommentsOnPost = () => {
@@ -60,10 +60,10 @@ export default function FullPost() {
         })
         submitComment()
         fetchCommentsOnPost()
-        setIsAllSet(true);
         setTempCommnet({
             ...tempComment,commentDescription : ""
         })
+        setIsAllSet(true);
    }
 
     /////////////////////////////////////////////////////////////
