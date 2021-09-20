@@ -47,6 +47,7 @@ export default function LogIn() {
             .then((res) =>{
                 if(res.data.length){
                     dispatch(LogInAction(res.data[0]));
+                    console.log(login_details.loggedin)
                     history.push({
                         pathname : '/',
                     });

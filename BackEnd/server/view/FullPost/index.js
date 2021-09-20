@@ -19,10 +19,12 @@ router.post('/postComment' , (req , res) =>{
             db.query(queries.postComment_query(), sqlArray , (error,result)=>{
                 if(error){
                     console.log(error);
+                    res.status(500).json({value : "something wrong"});
                 }else{
                     db.query(queries.updateCommentNumber_query(postId), (error, result)=>{
                         if(error){
                             console.log(error);
+                            res.status(500).json({value : "something wrong"});
                         }
                     });
                 }
@@ -41,6 +43,7 @@ router.post('/fetchComments',(req,res) =>{
         db.query(queries.fetchComments_query(postId), (error,result) =>{
             if(error){
                 console.log(error);
+                res.status(500).json({value : "something wrong"});
             } else {
                 res.send(result);
             }
@@ -59,6 +62,7 @@ router.post('/checkLiked',(req,res) =>{
         db.query(queries.checkLiked(postId, userId), (error,result) => {
             if(error){
                 console.log(error);
+                res.status(500).json({value : "something wrong"});
             } else {
                 res.send(result);
             }
@@ -74,9 +78,10 @@ router.post('/likePost',(req,res) =>{
     const postId = req.body.item.postId;
     const userId = req.body.authorisedUserDetails.userId;
     try{
-        db.query(queries.likePost(), [userId, postId], (error,result) =>{
+        db.query(queries.likePost(), [postId, userId], (error,result) =>{
             if(error){
                 console.log(error);
+                res.status(500).json({value : "something wrong"});
             } else {
                 res.send(result);
 
@@ -84,6 +89,7 @@ router.post('/likePost',(req,res) =>{
                 db.query(queries.IncLikeNumber_query(postId), (error, result)=>{
                     if(error){
                         console.log(error);
+                        res.status(500).json({value : "something wrong"});
                     }
                 });
             }
@@ -102,13 +108,15 @@ router.post('/unlikePost',(req,res) =>{
         db.query(queries.unlikePost(postId, userId), (error,result) =>{
             if(error){
                 console.log(error);
+                res.status(500).json({value : "something wrong"});
             } else {
                 res.send(result);
 
                 //decrease like number
-                db.query(queries.DecLikeNumber_query(postId), (error, result)=>{
+                db.query(queries.DecLikeNumebr_query(postId), (error, result)=>{
                     if(error){
                         console.log(error);
+                        res.status(500).json({value : "something wrong"});
                     }
                 });
             }

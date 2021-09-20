@@ -20,9 +20,7 @@ export default function PostBox(props) {
     const savingToDatabase = async(tempNewPost) =>{
         console.log("inside saving to database");
         try {
-            console.log("sldfnjcn");
             const result = await axios.post(URL.POST_NEW_ELEMENT_URL, {tempNewPost})
-            console.log("jasdnasb");
             console.log(result);
         } catch (error) {
             console.log(error);

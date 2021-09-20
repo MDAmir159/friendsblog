@@ -1,4 +1,3 @@
-
 const queries = {
     postComment_query,
     updateCommentNumber_query,
@@ -31,7 +30,7 @@ function checkLiked(postId, userId) {
 }
 
 function likePost() {
-    const sql_query1 = `INSERT INTO relation_user_post (userId, postId) VALUES (?,?)`;
+    const sql_query1 = `INSERT INTO relation_user_post (postId, userId) VALUES (?,?)`;
     return sql_query1;
 }
 
@@ -51,4 +50,3 @@ function DecLikeNumebr_query(postId) {
 }
 
 module.exports = queries;
-

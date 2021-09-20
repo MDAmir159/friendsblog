@@ -26,7 +26,7 @@ export default function Post(props) {
 
     useEffect(() => {
         checkLikedStatus();
-    }, [isAllSet])
+    }, [])
 
     //check if the post is liked
     const checkLikedStatus = () => {
@@ -34,7 +34,6 @@ export default function Post(props) {
         .then((res) =>{
             if(res.data.length){
                 setIsLiked(true)
-                // console.log(isLiked)
             } else {
                 setIsLiked(false)
             }
@@ -45,7 +44,7 @@ export default function Post(props) {
     const likeThePost = () => {
         axios.post(URL.LIKEPOST_URL, {item, authorisedUserDetails})
         .then((res) =>{
-            console.log(res)
+            setIsLiked(true);
         })
     }
 
@@ -53,7 +52,7 @@ export default function Post(props) {
     const unLikeThePost = () => {
         axios.post(URL.UNLIKEPOST_URL, {item, authorisedUserDetails})
         .then((res) =>{
-            console.log(res)
+            setIsLiked(false);
         })
     }
 

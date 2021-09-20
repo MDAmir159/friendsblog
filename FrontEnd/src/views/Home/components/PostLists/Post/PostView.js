@@ -19,7 +19,6 @@ export default function PostView(props) {
         anchorEl,
         noOfLikes,
         isLiked,
-        authorisedUserDetails,
         comments_number,
         onClickLikeButtonHandler,
         onClickCommentButtonHandler,

@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const queries = require('../../queries/signupQuery');
 const db = require('../../config/index');
 
 router.post('/signup' , (req , res) =>{
@@ -11,28 +12,25 @@ router.post('/signup' , (req , res) =>{
     const userInsertedTime = req.body.newUserDetails.userInsertedTime;
     const userUpdatedTime = req.body.newUserDetails.userUpdatedTime;
 
-
-
-    const sqlInstert = "INSERT INTO users (userHandle, userPassword, userName, userPhoneNumber, userInsertedTime, userUpdatedTime , userEmailAddress) VALUES (?,?,?,?,?,?,?)";
     const sqlArray = [userHandleName,userPassword,userName,userPhoneNumber,userInsertedTime,userUpdatedTime,userEmailAddress];
+
     if(userHandleName){
         try{
-            db.query(sqlInstert ,sqlArray , (error,result)=>{
+            db.query(queries.signup_query(), sqlArray, (error,result)=>{
                 if(error){
                     console.log(error);
                     res.status(500).json({message : "failed to sign up"});
                     
                 }else{
                     console.log(result);
-                    res.status(201).json({message : "element inserted"});
                 }
             })
         } catch (error){
             console.log(error);
+            res.status(500).json({value : "something wrong"});
         }
         
     }
-    res.send("hey")
 })
 
 module.exports = router;

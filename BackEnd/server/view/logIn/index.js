@@ -8,8 +8,7 @@ router.post('/login',(req,res) =>{
     const userPassword = req.body.tempUserDetails.tempUserPassword;
     console.log(req.body)
     try {
-        db.query(`SELECT * FROM users where userHandle = '${userHandleName}' and userEmailAddress = '${userEmailAddress}'
-        and userPassword = '${userPassword}'`, (error,result) =>{
+        db.query(`SELECT * FROM users where userHandle = ? and userEmailAddress = ? and userPassword = ?`, [userHandleName, userEmailAddress, userPassword], (error,result) =>{
             if(error){
                 console.log(error);
                 res.status(403).json({value : "user access is denied"})
