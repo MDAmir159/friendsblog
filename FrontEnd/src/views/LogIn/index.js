@@ -7,6 +7,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {LogInAction} from '../../redux/actions';
 
 export default function LogIn() {
+console.log("Pull req checking")
     ////////////////////////////////////////////   model portion    ////////////////////////////////////////////////////
     const login_details = useSelector(state => state.loginStatusReducer)
 
