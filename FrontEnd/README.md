@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# Friends-blog
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Friends-blog is a simple, full responsive website. This website can serve as a forum for the exchange of ideas, opinions, and solutions to different problems among a group of people or a friend circle.
 
-## Available Scripts
 
-In the project directory, you can run:
+## Why this?
 
-### `yarn start`
+- Ease of use
+- Suitable for using among close peoples.
+- Easily can be used as an activity sharing system within a friend circle.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## User Interfaces
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Log In and Sign Up
+Anyone who wishes to use the site must should firstly log in to their accounts. If they don't already have one, anyone can join by creating a new account.
 
-### `yarn test`
+- Home
+The homepage displays all of the articles that have been posted by all users. What other users have posted may be viewed by a user. A user's post can be liked and commented on by any other usesr. They can start a conversation this way.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Profile
+The profile is divided in two sections, Status and Settings
 
-### `yarn build`
+- Status
+Users can see their own posts in this section.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Settings
+Settings portion allows the user to update their information provided as the user information while signing up.
+# Tech Used
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Friends-blog uses a number of frameworks to work properly:
+- [React.js](https://reactjs.org/)- for front end development
+- [React Redux](https://react-redux.js.org/) - for frontend  state manipulation
+- [Node.js](http://nodejs.org/) - evented I/O for the backend
+- [Express](https://expressjs.com/) - fast node.js network app framework
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation
 
-### `yarn eject`
+Friends-blog requires [Node.js](https://nodejs.org/) v10+ to run.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Install the dependencies for the front end side.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```sh
+yarn install
+```
+After successfully installing all modules and dependecies run the following command in your current folder
+```sh
+yarn start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+By default this project will run on your localhost:3000 port.
+## Development
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Want to contribute? Great!
 
-## Learn More
+- Fork the project
+- Create your own featured branch
+```sh
+    git checkout -b feature/NewFeatures
+```
+- Commit your changes
+```sh
+    git commit -m "feature/NewFeatures"
+```
+- Push to the branch
+```sh
+    git push origin feature/NewFeatures
+```
+- Open a pull request
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Server Side
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Here is the link to the server side repository
+ [friends-blog-backend](https://github.com/MDAmir159/friends-blog-backend)
+ 
+ Enjoy !
